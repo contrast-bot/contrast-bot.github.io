@@ -12,16 +12,6 @@ This repository contains the official website for Contrast Bot, a versatile Disc
 
 The website is hosted at [contrast-bot.github.io](https://contrast-bot.github.io) using GitHub Pages.
 
-## About Contrast Bot
-
-Contrast is a powerful Discord bot that offers a variety of features including:
-
-- **Moderation Commands**: Kick, ban, and manage your server with ease
-- **Utility Tools**: Avatar fetching, user information, server stats, and more
-- **Fun Commands**: Rock Paper Scissors, quotes, jokes, and facts
-- **Social Features**: Reputation system and feedback collection
-- **Developer Tools**: Server management and diagnostic commands
-
 ## Technologies Used
 
 This website is built with:
