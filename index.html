@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrast Bot - A Versatile Discord Bot</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Contrast is a versatile Discord bot with moderation tools, fun commands, and social features built with TypeScript and Discord.js">
+    <meta name="keywords" content="discord bot, contrast bot, moderation, typescript, discord.js">
+    <meta name="author" content="Contrast Bot Team">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://contrast-bot.github.io/">
+    <meta property="og:title" content="Contrast Bot - A Versatile Discord Bot">
+    <meta property="og:description" content="Enhance your Discord server with moderation tools, fun commands, and social features.">
+    <meta property="og:image" content="https://contrast-bot.github.io/banner.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://contrast-bot.github.io/">
+    <meta property="twitter:title" content="Contrast Bot - A Versatile Discord Bot">
+    <meta property="twitter:description" content="Enhance your Discord server with moderation tools, fun commands, and social features.">
+    <meta property="twitter:image" content="https://contrast-bot.github.io/banner.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/76661d0faf.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Geist+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'geist-sans': ['"Geist Sans"', 'sans-serif'],
+                        'geist-mono': ['"Geist Mono"', 'monospace'],
+                    },
+                    colors: {
+                        'discord-blurple': '#5865F2',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-geist-sans antialiased">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="logo.png" alt="Contrast Bot Logo" class="w-8 h-8 rounded-full">
+                <span class="font-bold text-xl">Contrast</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="hover:text-gray-300 transition-colors">Features</a>
+                <a href="#commands" class="hover:text-gray-300 transition-colors">Commands</a>
+                <a href="#stats" class="hover:text-gray-300 transition-colors">Stats</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/pilot2254/contrast-bot" target="_blank" class="hover:text-gray-300 transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#invite" class="bg-discord-blurple hover:bg-discord-blurple/90 text-white px-4 py-2 rounded-md transition-colors">
+                    Invite Bot
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#features" class="hover:text-gray-300 transition-colors">Features</a>
+                <a href="#commands" class="hover:text-gray-300 transition-colors">Commands</a>
+                <a href="#stats" class="hover:text-gray-300 transition-colors">Stats</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 relative">
+        <div class="container mx-auto text-center relative z-10">
+            <img src="logo.png" alt="Contrast Bot Logo" class="w-24 h-24 mx-auto mb-6 mt-16 rounded-full shadow-lg border-2 border-white/20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
+                Meet Contrast
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10">
+                A versatile Discord bot built with TypeScript and Discord.js
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 mb-16">
+                <a href="#invite" class="bg-white text-black hover:bg-gray-200 font-medium px-6 py-3 rounded-md transition-colors">
+                    <i class="fas fa-plus mr-2"></i> Add to Discord
+                </a>
+                <a href="https://github.com/pilot2254/contrast-bot" target="_blank" class="bg-transparent border border-white/30 hover:bg-white/10 font-medium px-6 py-3 rounded-md transition-colors">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+            </div>
+            <div class="relative mx-auto max-w-5xl">
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-3xl rounded-3xl"></div>
+                <div class="relative bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl overflow-hidden">
+                    <pre class="font-geist-mono text-left text-sm md:text-base overflow-x-auto text-gray-300 p-2">
+const contrast = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers
+  ]
+});
+
+await contrast.login(config.token);
+// Contrast Bot is now online!</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-terminal text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Slash Commands</h3>
+                    <p class="text-gray-400">Modern Discord slash commands for easy interaction with intuitive interfaces.</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Moderation Tools</h3>
+                    <p class="text-gray-400">Powerful moderation commands to keep your server safe and well-managed.</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-gamepad text-green-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fun Commands</h3>
+                    <p class="text-gray-400">Entertaining commands like Rock Paper Scissors, jokes, and random facts.</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-yellow-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Social Features</h3>
+                    <p class="text-gray-400">Reputation system, quotes, and other social interaction features.</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-red-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">SQLite Database</h3>
+                    <p class="text-gray-400">Persistent storage for user data, quotes, reputation, and more.</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-indigo-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">TypeScript</h3>
+                    <p class="text-gray-400">Built with TypeScript for type safety and better code organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="py-20 px-4 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Popular Commands</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">ping</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Check the bot's latency and API response time</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">help</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Display all available commands and their usage</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">whois</span>
+                        <span class="text-gray-500 ml-2">[user]</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Display detailed information about a user</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">server-info</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Display information about the current server</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">rps</span>
+                        <span class="text-gray-500 ml-2">[choice]</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Play Rock Paper Scissors against the bot</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">remind</span>
+                        <span class="text-gray-500 ml-2">[time] [message]</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Set a reminder for yourself</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">quote</span>
+                        <span class="text-gray-500 ml-2">[add/random/get]</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Manage and display quotes</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all">
+                    <div class="font-geist-mono mb-2 flex items-center">
+                        <span class="text-discord-blurple">/</span>
+                        <span class="font-semibold">rep</span>
+                        <span class="text-gray-500 ml-2">[give/take/check]</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Manage user reputation</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="https://github.com/pilot2254/contrast-bot#commands" target="_blank" class="text-discord-blurple hover:underline">
+                    View all commands <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Bot Stats</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl text-center hover:border-white/30 transition-all">
+                    <div class="text-4xl font-bold mb-2 text-white counter" data-target="3">0</div>
+                    <p class="text-gray-400">Servers</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl text-center hover:border-white/30 transition-all">
+                    <div class="text-4xl font-bold mb-2 text-white counter" data-target="300">0</div>
+                    <p class="text-gray-400">Users</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl text-center hover:border-white/30 transition-all">
+                    <div class="text-4xl font-bold mb-2 text-white counter" data-target="30">0</div>
+                    <p class="text-gray-400">Commands</p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-xl text-center hover:border-white/30 transition-all">
+                    <div class="text-4xl font-bold mb-2 text-white counter" data-target="90">0</div>
+                    <p class="text-gray-400">Uptime %</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invite Section -->
+    <section id="invite" class="py-20 px-4 bg-black relative">
+        <div class="container mx-auto text-center max-w-3xl relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to add Contrast to your server?</h2>
+            <p class="text-gray-400 mb-10">Invite Contrast to your Discord server and experience all the features it has to offer.</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1339224975814688900" target="_blank" class="bg-discord-blurple hover:bg-discord-blurple/90 text-white font-medium px-8 py-4 rounded-md transition-colors inline-flex items-center">
+                <i class="fab fa-discord mr-2 text-xl"></i> Add to Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-4 bg-black border-t border-white/10">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <img src="logo.png" alt="Contrast Bot Logo" class="w-6 h-6 rounded-full">
+                    <span class="font-bold">Contrast Bot</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/pilot2254/contrast-bot" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://discord.gg/JWVMk9pvPS" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 Contrast Bot. Not affiliated with Discord, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
